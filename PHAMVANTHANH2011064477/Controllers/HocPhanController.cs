@@ -18,9 +18,18 @@ namespace PHAMVANTHANH2011064477.Controllers
             //Do du lieu vao giao dien
             return View(all_hp);
         }
-        public ActionResult Index()
+
+        public List<HocPhan> Laygiohang()
         {
-            return View();
+            List<HocPhan> lstHocPhan = Session["HocPhan"] as List<HocPhan>;
+            if (lstHocPhan == null)
+            {
+                lstHocPhan = new List<HocPhan>();
+                Session["GioHang"] = lstHocPhan;
+            }
+            return lstHocPhan;
         }
+
+        
     }
 }
